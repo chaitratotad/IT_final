@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+body{ 
+font-family:Helvetica;
+text-align:center;
+}
+
+#birthday-greeting{
+font-size:25px;
+color:gray;
+text-transform:uppercase;
+}
+</style>
+</head>
+<body>
+<script>
+var myrequest=new XMLHttpRequest();
+myrequest.open('GET','surprise.html');
+myrequest.onreadystatechange=function() {
+if (myrequest.readyState==4){
+document.getElementById('ajax-content').innerHTML=myrequest.responseText;
+}
+};
+
+function sendtheajax()
+{
+myrequest.send();
+document.getElementById('reveal').style.display='none';
+}
+</script>
+<h1>Today's your special day!</h1>
+<button id="reveal" onclick="sendtheajax()" class="button">
+Why's that?</button>
+<div id="ajax-content">
+</div>
+</body>
+</html>
+
