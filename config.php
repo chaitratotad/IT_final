@@ -1,21 +1,11 @@
 <?php
-$servername="localhost";
-$username="root";
-$password="root";
-$dbname="chai1";
-
-$link=mysqli_connect($servername,$username,$password,$dbname);
-if(!$link)
-{
-die("connection failed:" .mysqli_connect_error());
-}
-
-if(mysqli_query($link,$sql)) {
-echo "table employees created sucessfully";
-}
-else
-{
-echo "error creating table:".mysqli_error($link);
-}
-mysqli_close($link);
+$mysql_hostname = "localhost";
+$mysql_user = "root";
+$mysql_password = "root";
+$mysql_database = "vote";
+$con = mysqli_connect($mysql_hostname, $mysql_user, 
+$mysql_password) 
+or die("Could not connect database");
+mysqli_select_db($con,$mysql_database) 
+or die("Could not select database");
 ?>
